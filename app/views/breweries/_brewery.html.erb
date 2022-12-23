@@ -1,7 +1,6 @@
 <div id="<%= dom_id brewery %>">
   <p>
     <h2>
-      Name:
       <%= link_to brewery.name, brewery %>
     </h2>
   </p>
@@ -14,8 +13,14 @@
   </p>
 
   <p>
-      <strong>Stock:</strong>
-      <%= @brewery.beers.count %>  
+    <strong>Stock:</strong>
+    <%= @brewery.beers.count %>  
   </p>
+
+<p>
+  <% brewery.beers.each do |beer| %>
+    <%= link_to beer.name, beer %>
+  <% end %>
+</p>
 
 </div>
