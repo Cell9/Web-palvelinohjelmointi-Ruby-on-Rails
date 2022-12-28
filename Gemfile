@@ -13,12 +13,18 @@ gem "sprockets-rails"
 # gem "sqlite3", "~> 1.4"
 
 group :development, :test do
+  gem 'pry-byebug'
+end
+
+group :development, :test do
   gem 'sqlite3'
 end
 
 group :production do
    gem 'pg'
 end
+
+
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"

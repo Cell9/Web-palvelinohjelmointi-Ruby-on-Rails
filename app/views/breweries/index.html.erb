@@ -4,6 +4,8 @@
 
 <p>Number of breweries: <%= @breweries.count %></p>
 
+<%= link_to "Add a new brewery", new_brewery_path %>
+
 <div id="breweries">
   <% @breweries.each do |brewery| %>
     <div id="<%= dom_id brewery %>">
@@ -20,7 +22,6 @@
   <% end %>
 </div>
 
-<%= link_to "New brewery", new_brewery_path %>
 
 <p>
   <%= link_to 'List of beers', beers_path %>
