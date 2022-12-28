@@ -7,6 +7,10 @@ class Beer < ApplicationRecord
     result = ratings.reduce(0) { |sum, rating| sum + rating.score } / ratings.count.to_f
     return result.truncate(2)
     end
+
+    def to_s
+        "#{name},  #{brewery.name}"
+     end
 end
 
 
