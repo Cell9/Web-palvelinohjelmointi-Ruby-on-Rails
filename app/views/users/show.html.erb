@@ -8,16 +8,20 @@
 <Strong>Ratings</Strong>
 
 <ul>
-<%@user.ratings.each do |rating|%>
-  <li>
-    <%=rating%> <%=link_to "Delete", rating_path, data: { 'turbo-method': :delete }%>
-  </li>
-<% end %>  
+  <% @user.ratings.each do |rating| %>
+    <li><%= "#{rating.to_s}" %>
+      <% if @user == current_user %>
+        <%= link_to "Delete", rating, data: {turbo_method: :delete} %>
+      <% end %>
+    </li>
+  <% end %>
 </ul>
 
 <div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
+  
   <%= link_to "Back to users", users_path %>
-
-  <%= button_to "Destroy this user", @user, method: :delete %>
+  <% if @user == current_user %>
+    <%= link_to "Edit this user", edit_user_path(@user) %> 
+    <%= button_to "Destroy this user", @user, method: :delete %>
+  <% end %>
 </div>
