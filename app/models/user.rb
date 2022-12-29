@@ -26,6 +26,12 @@ class User < ApplicationRecord
     Brewery.find(favorite.brewery_id)    
   end
 
+  def favorite_brewerys_name
+    return nil if ratings.empty?   
+
+    favorite_brewery.name 
+  end
+
   def favorite_style
     return nil if ratings.empty?   
 
