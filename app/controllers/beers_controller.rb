@@ -19,30 +19,29 @@ class BeersController < ApplicationController
   # GET /beers/new
   def new
     @beer = Beer.new
-
   end
 
   # GET /beers/1/edit
   def edit
-#uses before_action method
+    # uses before_action method
   end
 
   # POST /beers or /beers.json
-def create
-  @beer = Beer.new(beer_params)
+  def create
+    @beer = Beer.new(beer_params)
 
-  respond_to do |format|
-    if @beer.save
-      format.html { redirect_to beers_path, notice: 'Beer was successfully created.' }
-      format.json { render action: 'show', status: :created, location: @beer }
-    else
-      set_breweries_and_styles_for_template
+    respond_to do |format|
+      if @beer.save
+        format.html { redirect_to beers_path, notice: 'Beer was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @beer }
+      else
+        set_breweries_and_styles_for_template
 
-      format.html { render action: 'new' }
-      format.json { render json: @beer.errors, status: :unprocessable_entity }
+        format.html { render action: 'new' }
+        format.json { render json: @beer.errors, status: :unprocessable_entity }
+      end
     end
   end
-end
 
   # PATCH/PUT /beers/1 or /beers/1.json
   def update
