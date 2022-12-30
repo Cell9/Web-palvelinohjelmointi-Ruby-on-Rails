@@ -46,4 +46,16 @@ describe "User" do
     expect(page).to have_content 'Has made 4 ratings'
   end
   
+  it "Favorite style is shown on user page" do    
+    create_beers_with_many_ratings({user: @user}, 32, 12, 34, 22)
+    visit user_path(@user)
+    expect(page).to have_content 'Favorite style: Lager'
+  end
+  it "Favorite brewery is shown on user page" do    
+    create_beers_with_many_ratings({user: @user}, 32, 12, 34, 22)
+    visit user_path(@user)
+    expect(page).to have_content 'Favorite brewery is: anonymous'
+  end
+  
+
 end
