@@ -1,10 +1,8 @@
-<p style="color: green"><%= notice %></p>
+<<p style="color: green"><%= notice %></p>
 
 <h1>Listing breweries</h1>
 
 <p>Number of breweries: <%= @breweries.count %></p>
-
-<%= link_to "Add a new brewery", new_brewery_path %>
 
 <div id="breweries">
   <% @breweries.each do |brewery| %>
@@ -22,7 +20,4 @@
   <% end %>
 </div>
 
-
-<p>
-  <%= link_to 'List of beers', beers_path %>
-</p>
+<%= link_to "New brewery", new_brewery_path if current_user %>

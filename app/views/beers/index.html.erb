@@ -2,16 +2,10 @@
 
 <h1>Beers</h1>
 
-<%= link_to "Add a new beer", new_beer_path %>
-
 <div id="beers">
   <% @beers.each do |beer| %>
     <%= render beer %>
   <% end %>
 </div>
 
-
-
-<p>
-  <%= link_to 'List of breweries', breweries_path %>
-</p>
+<%= link_to('New Beer', new_beer_path) if current_user %>
