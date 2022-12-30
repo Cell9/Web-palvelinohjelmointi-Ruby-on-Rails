@@ -24,6 +24,7 @@ group :production do
    gem 'pg'
 end
 
+gem 'httparty'
 gem 'bcrypt', '~> 3.1.7'
 
 # Use the Puma web server [https://github.com/puma/puma]
