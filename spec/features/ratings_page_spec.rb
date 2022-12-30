@@ -36,4 +36,5 @@ describe "Rating" do
 
     expect(page).to have_content 'Ratings: 2'
   end
+
 end
